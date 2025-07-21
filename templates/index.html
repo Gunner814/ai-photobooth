@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Cross Fiesta AI Photobooth</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎉 Red Cross Fiesta AI Photobooth 🎉</h1>
+        </header>
+
+        <div class="step-container">
+            <!-- Step 1: Camera -->
+            <div id="camera-step" class="step active">
+                <h2>📸 Take Your Photo</h2>
+                <div class="camera-container">
+                    <video id="video" autoplay playsinline></video>
+                    <canvas id="canvas" style="display: none;"></canvas>
+                </div>
+                <div class="camera-controls">
+                    <button id="capture-btn" class="btn btn-primary">Capture Photo</button>
+                    <button id="switch-camera-btn" class="btn btn-secondary">Switch Camera</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Preview Captured Photo -->
+            <div id="preview-step" class="step">
+                <h2>👀 Your Photo</h2>
+                <div class="preview-container">
+                    <img id="captured-preview" alt="Captured photo">
+                </div>
+                <div class="preview-controls">
+                    <button id="retake-btn" class="btn btn-secondary">Retake</button>
+                    <button id="continue-btn" class="btn btn-primary">Continue</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Template Selection -->
+            <div id="template-step" class="step">
+                <h2>🎭 Choose Your Template</h2>
+                <div class="quality-settings">
+                    <label class="quality-toggle">
+                        <input type="checkbox" id="enhance-quality" checked>
+                        <span class="slider"></span>
+                        <span class="label-text">✨ High Quality Mode (slower but better)</span>
+                    </label>
+                </div>
+                <div id="template-grid" class="template-grid">
+                    <!-- Templates will be loaded here -->
+                </div>
+                <button id="back-to-preview-btn" class="btn btn-secondary">Back</button>
+            </div>
+
+            <!-- Step 4: Processing -->
+            <div id="processing-step" class="step">
+                <h2>✨ Creating Magic...</h2>
+                <div class="loading-container">
+                    <div class="spinner"></div>
+                    <div id="processing-status">
+                        <p id="status-text">Processing your photo...</p>
+                        <div class="progress-steps">
+                            <div class="progress-step" id="step-swap">🔄 Face swapping</div>
+                            <div class="progress-step" id="step-enhance">✨ Enhancing quality</div>
+                            <div class="progress-step" id="step-finalize">🎊 Finalizing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: Result -->
+            <div id="result-step" class="step">
+                <h2>🎊 Your Amazing Result!</h2>
+                <div class="result-container">
+                    <img id="result-image" alt="Face swapped result">
+                    <div class="result-info">
+                        <p id="faces-count"></p>
+                        <p id="quality-info"></p>
+                    </div>
+                </div>
+                <div class="result-controls">
+                    <button id="download-btn" class="btn btn-primary">Download Photo</button>
+                    <button id="start-over-btn" class="btn btn-secondary">Start Over</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,9 +1,17 @@
 {
   "permissions": {
     "allow": [
+      "WebFetch(domain:github.com)",
       "Bash(mkdir:*)",
-      "mcp__zen__thinkdeep",
-      "Bash(python:*)"
+      "Bash(conda create:*)",
+      "Bash(source:*)",
+      "Bash(conda activate:*)",
+      "Bash(conda install:*)",
+      "Bash(pip install:*)",
+      "Bash(python:*)",
+      "Bash(chmod:*)",
+      "Bash(pkill:*)",
+      "Bash(ss:*)"
     ],
     "deny": []
   }
